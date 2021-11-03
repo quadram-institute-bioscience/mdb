@@ -7,7 +7,7 @@ python -m pip install requirements.txt
 
 ### Usage
 
-Input bam file is the post ivar-trim output
+Input bam file is the `ivar trim` or `samtools ampliconclip` output
 
 ```
 Usage: mask_dgy_bases.py [OPTIONS] BAM_FILE
