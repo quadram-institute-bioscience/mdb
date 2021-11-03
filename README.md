@@ -1,6 +1,10 @@
 ## Soft clipping dodgy bases
 ### Dependencies
 
+- python >= 3.6
+- python libaries `loguru, click, pysam`
+- samtools
+
 ```
 python -m pip install requirements.txt
 ```
