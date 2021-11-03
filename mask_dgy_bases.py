@@ -24,7 +24,7 @@ POS = {
     # '22227': ["C", "T"],
     # '23557': ["C", "T"],
     # '24410': ["G", "A"],
-    '25337': ["G", "C"],
+    # '25337': ["G", "C"],
     # '29870': ["C", "A"],
 }
 
@@ -41,6 +41,8 @@ def soft_mask_dodgy_bases(bam_file, verbose, cutoff_length, ref_name, output_nam
         logger.enable("__main__")
     if output_name is None:
         output_name = pathlib.Path(bam_file).name
+    if not output_name.endswith(".bam"):
+        output_name = f"{output_name}.bam"
     assert pathlib.Path(bam_file).exists()
 
     logfile = f"{output_name}_trim_dodgy_bases.log"
@@ -135,7 +137,7 @@ def soft_mask_dodgy_bases(bam_file, verbose, cutoff_length, ref_name, output_nam
     # Python 8.8 missing_ok added
     pathlib.Path("tmp.bam").unlink()
     finished_message = f"Number of reads have been processed: {sum([int(v) for k,v in n_fixed_reads.items()])} {[f'{k}({v})' for k,v in n_fixed_reads.items()]}\nTotal reads found to be processed: {len(qseqs)}"
-    logger.info(finished_message)
+    # logger.info(finished_message)
     print(finished_message)
 
 
